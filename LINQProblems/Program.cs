@@ -69,6 +69,24 @@ namespace LINQProblems
             //3. remove the recurring strings as they are counted
             //4. add number at the end of the letter string
             //5. bring the list together to form one string
+
+            void GetFrequency (string Test)
+            {
+                var frequency = Test.ToLower();
+
+                var charFrequencies = from c in frequency.ToArray()
+                                      orderby c 
+                                      group c by c into groupFrequencies
+                                      select groupFrequencies;
+                foreach (var c in charFrequencies)
+                    Console.Write($"{c.Key}{c.Count()}");
+
+                Console.ReadLine();
+
+
+            }
+            GetFrequency("Alexander Mencia");
         }
     }
 }
+    
